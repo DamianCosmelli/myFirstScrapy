@@ -19,7 +19,9 @@ class JobsSpider(CrawlSpider):
              follow=True),)
 
     def parse_item(self, response):
-        if not (str(response.url).__contains__('location') or str(response.url).__contains__('type') or str(response.url).__contains__('category')):
+        if not (str(response.url).__contains__('location')
+                or str(response.url).__contains__('type')
+                or str(response.url).__contains__('category')):
             itemlink = str(response.css('.text > .listing-company > .listing-company-name > .company-name::text').extract()[0]).replace('\\n\\t', ' ').replace('\\t', ' ').replace('\\n', ' ').replace(',', ' ').strip()
 
             item = MyfirstscrapyItem()
