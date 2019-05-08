@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import scrapy
 from scrapy.linkextractors import LinkExtractor
-from scrapy.selector import Selector
 from scrapy.spiders import CrawlSpider
 from scrapy.spiders import Rule
+
 from myFirstScrapy.items import *
+
 
 class JobsSpider(CrawlSpider):
     exclude = ['type', 'location', 'category']
@@ -22,7 +22,7 @@ class JobsSpider(CrawlSpider):
         if not (str(response.url).__contains__('location')
                 or str(response.url).__contains__('type')
                 or str(response.url).__contains__('category')):
-            itemlink = str(response.css('.text > .listing-company > .listing-company-name > .company-name::text').extract()[0]).replace('\\n\\t', ' ').replace('\\t', ' ').replace('\\n', ' ').replace(',', ' ').strip()
+            itemlink = str(response.css('.text > .listing-company > .listing-company-name > .company-name::text').extract()[0]).replace('\\n\\t', ' scra').replace('\\t', ' ').replace('\\n', ' ').replace(',', ' ').strip()
 
             item = MyfirstscrapyItem()
             item['puesto'] = itemlink
