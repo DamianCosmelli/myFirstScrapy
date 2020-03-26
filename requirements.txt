@@ -50,7 +50,7 @@ sip==4.19.13
 six==1.12.0
 soupsieve==1.8
 tornado==6.0.2
-Twisted==19.2.0
+Twisted==19.7.0
 w3lib==1.20.0
 wincertstore==0.2
 wrapt==1.11.1
